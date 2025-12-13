@@ -1,6 +1,19 @@
 # @pantograph/design-tokens
 
 Design tokens exported from Figma for the Pantograph project.
+- use fine-grained Git token
+- use npm bypass token 
+- use [TokensBrücke Figma extension](https://www.figma.com/community/plugin/1254538877056388290/tokensbrucke) by belo configs:
+
+```json
+{
+  "repo": "pantograph-design-tokens",
+  "owner": "mahdaad-group",
+  "path": "src/designTokens.json",
+  "file": "main",
+  "commit": "figma-token-update"
+}
+```
 
 ## Installation
 
