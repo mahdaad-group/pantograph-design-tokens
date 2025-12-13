@@ -1,0 +1,40 @@
+{
+  "name": "@pantograph/design-tokens",
+  "version": "0.0.0",
+  "id": "design-tokens",
+  "private": false,
+  "description": "Figma design tokens for Pantograph",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./designTokens.json": "./src/designTokens.json"
+  },
+  "author": {
+    "name": "sedmedgh",
+    "email": "sedmedgh@gmail.com"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "figma",
+    "design-tokens",
+    "pantograph",
+    "ui-tokens"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
