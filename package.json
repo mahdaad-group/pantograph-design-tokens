@@ -1,6 +1,6 @@
 {
   "name": "@pantograph/design-tokens",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "id": "design-tokens",
   "private": false,
   "description": "Figma design tokens for Pantograph",
