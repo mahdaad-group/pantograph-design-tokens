@@ -4,7 +4,6 @@ import { extractTypesFromDesignTokens } from './build/extractConstant';
 
 const externalPackages = [];
 
-
 export default defineConfig({
   plugins: [extractTypesFromDesignTokens()],
   build: {

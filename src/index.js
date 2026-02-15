@@ -1,2 +1,2 @@
-export {default as designTokens } from './designTokens.json';
-export * from './constant'
+export { default as designTokens } from './designTokens.json';
+export * from './constant';

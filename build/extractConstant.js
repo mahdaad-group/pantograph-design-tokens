@@ -9,7 +9,6 @@ export function extractTypesFromDesignTokens() {
   return {
     name: 'extract-types-from-design-tokens',
     buildStart() {
-
       // Extract themes from Alias colors -> $extensions -> mode -> keys
       const themes = extractThemes(designTokens);
 
@@ -49,7 +48,6 @@ export const dimensions = Object.freeze(${JSON.stringify(dimensions)});
         .map((q) => `${q}?: DesignTokenGroup;`)
         .join('\n  ');
 
-
       // Generate index.d.ts content (entry point for types)
       const indexTypesContent = `// Type definitions for @pantograph/design-tokens
 
@@ -79,12 +77,12 @@ export interface DesignTokens {
   ${designTokensSections}
   [key: string]: DesignTokenGroup | undefined;
 }
-export declare type Langs = ${langs.length > 0 ? langs.map(lang => `'${lang}'`).join(' | ') : "'en' | 'fa'"};
-export declare type Themes = ${themes.length > 0 ? themes.map(theme => `'${theme}'`).join(' | ') : "'oktuple' | 'claytap' | 'agility' | 'pantograph' | 'primeplanet'"};
-export declare type GrayScales = ${grayScales.length > 0 ? grayScales.map(scale => `'${scale}'`).join(' | ') : "'arsenic' | 'cool' | 'warm' | 'neutral'"};
-export declare type PrimitiveColors = ${primitiveColors.length > 0 ? primitiveColors.map(c => `'${c}'`).join(' | ') : "never"};
-export declare type AliasColors = ${aliasColors.length > 0 ? aliasColors.map(c => `'${c}'`).join(' | ') : "never"};
-export declare type Dimensions = ${dimensions.length > 0 ? dimensions.map(d => `'${d}'`).join(' | ') : "never"};
+export declare type Langs = ${langs.length > 0 ? langs.map((lang) => `'${lang}'`).join(' | ') : "'en' | 'fa'"};
+export declare type Themes = ${themes.length > 0 ? themes.map((theme) => `'${theme}'`).join(' | ') : "'oktuple' | 'claytap' | 'agility' | 'pantograph' | 'primeplanet'"};
+export declare type GrayScales = ${grayScales.length > 0 ? grayScales.map((scale) => `'${scale}'`).join(' | ') : "'arsenic' | 'cool' | 'warm' | 'neutral'"};
+export declare type PrimitiveColors = ${primitiveColors.length > 0 ? primitiveColors.map((c) => `'${c}'`).join(' | ') : 'never'};
+export declare type AliasColors = ${aliasColors.length > 0 ? aliasColors.map((c) => `'${c}'`).join(' | ') : 'never'};
+export declare type Dimensions = ${dimensions.length > 0 ? dimensions.map((d) => `'${d}'`).join(' | ') : 'never'};
 export declare const designTokens: DesignTokens;
 export declare const primitiveColors: readonly PrimitiveColors[];
 export declare const aliasColors: readonly AliasColors[];
@@ -176,9 +174,7 @@ function extractThemes(designTokens) {
     function findModes(obj) {
       if (obj && typeof obj === 'object') {
         if (obj.$extensions?.mode) {
-          Object.keys(obj.$extensions.mode).forEach(key =>
-            themes.add(key.toLowerCase())
-          );
+          Object.keys(obj.$extensions.mode).forEach((key) => themes.add(key.toLowerCase()));
         } else {
           Object.values(obj).forEach(findModes);
         }
@@ -199,9 +195,7 @@ function extractLangs(designTokens) {
     function findModes(obj) {
       if (obj && typeof obj === 'object') {
         if (obj.$extensions?.mode) {
-          Object.keys(obj.$extensions.mode).forEach(key =>
-            langs.add(key.toLowerCase())
-          );
+          Object.keys(obj.$extensions.mode).forEach((key) => langs.add(key.toLowerCase()));
         } else {
           Object.values(obj).forEach(findModes);
         }
@@ -222,9 +216,7 @@ function extractGrayScales(designTokens) {
     const items = Object.values(grayscalesDark.Grayscales);
     items.forEach((item) => {
       if (item?.$extensions?.mode) {
-        Object.keys(item.$extensions.mode).forEach(key =>
-          grayScales.add(key.toLowerCase())
-        );
+        Object.keys(item.$extensions.mode).forEach((key) => grayScales.add(key.toLowerCase()));
       }
     });
   }

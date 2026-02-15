@@ -25,6 +25,8 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -35,6 +37,12 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^10.0.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.12.0",
+    "prettier": "^3.4.2",
     "vite": "^5.0.0"
   }
 }
